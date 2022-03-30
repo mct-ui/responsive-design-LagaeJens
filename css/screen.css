@@ -1,6 +1,19 @@
 /*------------------------------------*\
   #FONTS
 \*------------------------------------*/
+@font-face {
+    font-family: "HK Gtrotesk Web";
+    font-weight: 200;
+    src: url("../fonts/hkgrotesk-light-webfont.woff") format("woff"),
+        url("../fonts/hkgrotesk-light-webfont.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "HK Gtrotesk Web";
+    font-weight: 400;
+    src: url("../fonts/hkgrotesk-regular-webfont.woff") format("woff"),
+        url("../fonts/hkgrotesk-regular-webfont.woff2") format("woff2");
+}
 
 /*------------------------------------*\
   #GENERIC
@@ -15,8 +28,8 @@
 html {
     font-size: 16px;
     line-height: 1.5;
-    font-family: Helvetica, arial, sans-serif;
-    color: #111;
+    font-family: "HK Gtrotesk Web", sans-serif;
+    color: #202024;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -28,6 +41,12 @@ html {
     box-sizing: inherit;
 }
 
+@media (min-width : 768px) {
+    html {
+        font-size: 20px;
+    }
+}
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -36,7 +55,7 @@ html {
  */
 
 ::selection {
-    background: #e85e00;
+    background: #5051db;
     color: white;
     text-shadow: none;
 }
@@ -61,6 +80,11 @@ img {
     ---
     Default markup for typographic elements
 */
+h1, h2, h3 {
+    font-weight: 200;
+}
+
+
 
 h1 {
     font-size: 36px;
@@ -135,19 +159,18 @@ hr {
     margin: 0 0 24px;
 }
 
+a:visited,
 a {
-    color: RoyalBlue;
+    color: #5051db;
     transition: all .1s ease-in-out;
 }
 
-a:visited,
-a:active {
-    color: BlueViolet;
-}
 
+
+a:active,
 a:hover,
 a:focus {
-    color: Crimson;
+    color: #3e3ea8;
 }
 
 /*------------------------------------*\
@@ -194,7 +217,8 @@ a:focus {
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    max-width: 90em; /* 90 * 16px = 1440px */
+    max-width: 56.4em;
+    /* 56.4 * 20px = 1128px */
 }
 
 /*
@@ -212,9 +236,9 @@ a:focus {
     flex-wrap: wrap;
 }
 
-    .o-layout__item {
-        flex-basis: 100%;
-    }
+.o-layout__item {
+    flex-basis: 100%;
+}
 
 /* gutter modifiers, these affect o-layout__item too */
 
@@ -222,7 +246,7 @@ a:focus {
     margin: 0 -12px;
 }
 
-.o-layout--gutter > .o-layout__item {
+.o-layout--gutter>.o-layout__item {
     padding: 0 12px;
 }
 
@@ -230,7 +254,7 @@ a:focus {
     margin: 0 -6px;
 }
 
-.o-layout--gutter-sm > .o-layout__item {
+.o-layout--gutter-sm>.o-layout__item {
     padding: 0 6px;
 }
 
@@ -238,7 +262,7 @@ a:focus {
     margin: 0 -24px;
 }
 
-.o-layout--gutter-lg > .o-layout__item {
+.o-layout--gutter-lg>.o-layout__item {
     padding: 0 24px;
 }
 
@@ -314,9 +338,71 @@ a:focus {
     align-content: space-between;
 }
 
+/*
+    Objects: List
+    ---
+    Small reusable object to remove default list styling from lists
+*/
+
+.o-list_reset {
+    list-style: none;
+    padding: 0;
+}
+
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
+/*
+    Component: Logo
+    ---
+    Website main logo
+*/
+
+.c-logo {
+    height: 32px;
+}
+
+.c-logo_svg {
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .c-logo {
+        height: 40px;
+    }
+}
+
+/*
+    Component: Nav
+    ---
+    Main navigation of the site
+*/
+
+.c-nav {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.c-nav__link {
+    display: block;
+    text-decoration: none;
+    padding: 8px 0;
+}
+
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+
+}
+
+.c-nav__link:hover,
+.c-nav__link:focus {}
+
+@media (min-width: 768px) {
+    .c-nav__list {}
+
+    .c-nav__link {}
+}
 
 /*------------------------------------*\
   #UTILITIES
@@ -415,33 +501,43 @@ a:focus {
     .u-1-of-2-bp1 {
         flex-basis: calc(100% / 2) !important;
     }
+
     .u-1-of-3-bp1 {
         flex-basis: calc(100% / 3) !important;
     }
+
     .u-2-of-3-bp1 {
         flex-basis: calc(100% / 3 * 2) !important;
     }
+
     .u-1-of-4-bp1 {
         flex-basis: calc(100% / 4) !important;
     }
+
     .u-3-of-4-bp1 {
         flex-basis: calc(100% / 4 * 3) !important;
     }
+
     .u-1-of-5-bp1 {
         flex-basis: calc(100% / 5) !important;
     }
+
     .u-2-of-5-bp1 {
         flex-basis: calc(100% / 5 * 2) !important;
     }
+
     .u-3-of-5-bp1 {
         flex-basis: calc(100% / 5 * 3) !important;
     }
+
     .u-4-of-5-bp1 {
         flex-basis: calc(100% / 5 * 4) !important;
     }
+
     .u-1-of-6-bp1 {
         flex-basis: calc(100% / 6) !important;
     }
+
     .u-5-of-6-bp1 {
         flex-basis: calc(100% / 6 * 5) !important;
     }
@@ -451,33 +547,43 @@ a:focus {
     .u-1-of-2-bp2 {
         flex-basis: calc(100% / 2) !important;
     }
+
     .u-1-of-3-bp2 {
         flex-basis: calc(100% / 3) !important;
     }
+
     .u-2-of-3-bp2 {
         flex-basis: calc(100% / 3 * 2) !important;
     }
+
     .u-1-of-4-bp2 {
         flex-basis: calc(100% / 4) !important;
     }
+
     .u-3-of-4-bp2 {
         flex-basis: calc(100% / 4 * 3) !important;
     }
+
     .u-1-of-5-bp2 {
         flex-basis: calc(100% / 5) !important;
     }
+
     .u-2-of-5-bp2 {
         flex-basis: calc(100% / 5 * 2) !important;
     }
+
     .u-3-of-5-bp2 {
         flex-basis: calc(100% / 5 * 3) !important;
     }
+
     .u-4-of-5-bp2 {
         flex-basis: calc(100% / 5 * 4) !important;
     }
+
     .u-1-of-6-bp2 {
         flex-basis: calc(100% / 6) !important;
     }
+
     .u-5-of-6-bp2 {
         flex-basis: calc(100% / 6 * 5) !important;
     }
@@ -487,33 +593,43 @@ a:focus {
     .u-1-of-2-bp3 {
         flex-basis: calc(100% / 2) !important;
     }
+
     .u-1-of-3-bp3 {
         flex-basis: calc(100% / 3) !important;
     }
+
     .u-2-of-3-bp3 {
         flex-basis: calc(100% / 3 * 2) !important;
     }
+
     .u-1-of-4-bp3 {
         flex-basis: calc(100% / 4) !important;
     }
+
     .u-3-of-4-bp3 {
         flex-basis: calc(100% / 4 * 3) !important;
     }
+
     .u-1-of-5-bp3 {
         flex-basis: calc(100% / 5) !important;
     }
+
     .u-2-of-5-bp3 {
         flex-basis: calc(100% / 5 * 2) !important;
     }
+
     .u-3-of-5-bp3 {
         flex-basis: calc(100% / 5 * 3) !important;
     }
+
     .u-4-of-5-bp3 {
         flex-basis: calc(100% / 5 * 4) !important;
     }
+
     .u-1-of-6-bp3 {
         flex-basis: calc(100% / 6) !important;
     }
+
     .u-5-of-6-bp3 {
         flex-basis: calc(100% / 6 * 5) !important;
     }
@@ -523,33 +639,43 @@ a:focus {
     .u-1-of-2-bp4 {
         flex-basis: calc(100% / 2) !important;
     }
+
     .u-1-of-3-bp4 {
         flex-basis: calc(100% / 3) !important;
     }
+
     .u-2-of-3-bp4 {
         flex-basis: calc(100% / 3 * 2) !important;
     }
+
     .u-1-of-4-bp4 {
         flex-basis: calc(100% / 4) !important;
     }
+
     .u-3-of-4-bp4 {
         flex-basis: calc(100% / 4 * 3) !important;
     }
+
     .u-1-of-5-bp4 {
         flex-basis: calc(100% / 5) !important;
     }
+
     .u-2-of-5-bp4 {
         flex-basis: calc(100% / 5 * 2) !important;
     }
+
     .u-3-of-5-bp4 {
         flex-basis: calc(100% / 5 * 3) !important;
     }
+
     .u-4-of-5-bp4 {
         flex-basis: calc(100% / 5 * 4) !important;
     }
+
     .u-1-of-6-bp4 {
         flex-basis: calc(100% / 6) !important;
     }
+
     .u-5-of-6-bp4 {
         flex-basis: calc(100% / 6 * 5) !important;
     }
@@ -595,6 +721,7 @@ a:focus {
 */
 
 @media print {
+
     *,
     *:before,
     *:after {
@@ -605,16 +732,20 @@ a:focus {
         box-shadow: none !important;
         text-shadow: none !important;
     }
+
     a,
     a:visited {
         text-decoration: underline;
     }
+
     a[href]:after {
-        content: " (" attr(href) ")";
+        content: " ("attr(href) ")";
     }
+
     abbr[title]:after {
-        content: " (" attr(title) ")";
+        content: " ("attr(title) ")";
     }
+
     /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
@@ -623,14 +754,17 @@ a:focus {
     a[href^="javascript:"]:after {
         content: "";
     }
+
     pre {
         white-space: pre-wrap !important;
     }
+
     pre,
     blockquote {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
+
     /*
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
@@ -638,16 +772,19 @@ a:focus {
     thead {
         display: table-header-group;
     }
+
     tr,
     img {
         page-break-inside: avoid;
     }
+
     p,
     h2,
     h3 {
         orphans: 3;
         widows: 3;
     }
+
     h2,
     h3 {
         page-break-after: avoid;
